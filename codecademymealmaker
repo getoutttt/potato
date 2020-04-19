@@ -22,7 +22,7 @@ const menu = {
   set desserts (desserts) {
     this._courses.desserts = desserts;
   },
-  get _courses() {
+  get courses() {
     return {
       mains: this.mains,
       appetizers: this.appetizers,
@@ -32,13 +32,13 @@ const menu = {
   addDishToCourse (courseName, dishName, dishPrice) {
     const dish = {
       name: dishName,
-      price: dishPrice
+      price: dishPrice,
     };
     this._courses[courseName].push(dish);
   },
   getRandomDishFromCourse(courseName) {
-    const dishes = this._courses.courseName;
-    const randomIndex = Math.floor(Math.random(dishes.length));
+    const dishes = this._courses[courseName];
+    const randomIndex = Math.floor(Math.random() * dishes.length);
     return dishes[randomIndex]
   },
   generateRandomMeal() {
@@ -50,4 +50,14 @@ const menu = {
   }
 };
 
-menu.addDishToCourse('appetizers', 'miso salad', 5.80);
+menu.addDishToCourse('appetizers', 'savoury ball soup', 4);
+menu.addDishToCourse('appetizers', 'smoky fish salad', 5);
+menu.addDishToCourse('appetizers', 'chilled baby fingers', 7);
+menu.addDishToCourse('mains', 'lobster without tail or skin or anything', 12);
+menu.addDishToCourse('mains', 'tied-up astronaut deer', 22);
+menu.addDishToCourse('mains', 'faceless whole hog', 45);
+menu.addDishToCourse('dessert', 'creamy ass pudding', 5);
+menu.addDishToCourse('dessert', 'mouthwash ice cream', 4);
+menu.addDishToCourse('dessert', 'chocolate cake or dead mush', 9);
+
+console.log(appetizer)
